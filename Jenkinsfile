@@ -2,7 +2,8 @@ pipeline {
   agent any
 
   environment {
-    IMAGE = '113.198.66.77/test_minji/wooridoori-api'
+    // 🚨 Harbor 웹이 8080 포트라면 반드시 추가!
+    IMAGE = '113.198.66.77:18170/test_minji/wooridoori-api'
     HARBOR_CRED = 'harbor-robot'
     TAG = "${env.BRANCH_NAME ?: 'main'}-${env.BUILD_NUMBER}"
   }
