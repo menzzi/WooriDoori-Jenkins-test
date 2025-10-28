@@ -1,8 +1,5 @@
 pipeline {
-  agent {
-    label 'any'
-    customWorkspace "workspace/${JOB_NAME}_${BUILD_NUMBER}"
-  }
+  agent any
 
   environment {
     IMAGE = '113.198.66.77/test_minji/wooridoori-api'
