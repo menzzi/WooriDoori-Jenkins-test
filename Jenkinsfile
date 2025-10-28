@@ -15,6 +15,7 @@ stage('Build & Push (Jib)') {
           -Djib.to.auth.username=$HUSER \
           -Djib.to.auth.password=$HPASS \
           -Djib.to.tags=${TAG},latest
+
       '''
     }
   }
