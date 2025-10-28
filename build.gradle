@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'com.google.cloud.tools.jib' version '3.4.1'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.woowacourse-projects:mission-utils:1.1.0'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+jib {
+    allowInsecureRegistries = true
+
+    from {
+        image = 'eclipse-temurin:17-jre'
+    }
+    to {
+        image = '113.198.66.77/test_minji/wooridoori-api'
+        tags = ['latest']
+    }
+    container {
+        mainClass = 'Application'   // ⚠️ 네 프로젝트의 main() 클래스 이름으로 수정
+        ports = ['8080']
+        jvmFlags = ['-XX:+UseContainerSupport']
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
