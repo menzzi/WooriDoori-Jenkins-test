@@ -23,6 +23,7 @@ pipeline {
               -Djib.to.tags=${TAG},latest \
               -Djib.allowInsecureRegistries=true
           '''
+
         }
       }
     }
